@@ -22,8 +22,8 @@ public class BobReleaseScheduler {
         List<Release> releases = new ArrayList<>();
 
        
-        String inputFilePath = "releases.txt";  // Adjust this path if necessary
-        String outputFilePath = "./files/solution.txt";  // Adjust this path if necessary
+        String inputFilePath = "releases.txt";  
+        String outputFilePath = "./files/solution.txt";  
 
         // Read input from releases.txt file
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath))) {
@@ -53,7 +53,7 @@ public class BobReleaseScheduler {
         List<Release> selectedReleases = new ArrayList<>();
         int currentDay = 1;
 
-        // Select the maximum number of releases without exceeding the sprint time (day 10)
+       
         for (Release release : releases) {
             if (release.startDay >= currentDay && release.endDay <= 10) {
                 selectedReleases.add(release);
@@ -77,7 +77,7 @@ public class BobReleaseScheduler {
             for (Release release : selectedReleases) {
                 writer.write(release.startDay + " " + release.endDay + "\n");
             }
-            System.out.println("Solution written to: " + outputFilePath);
+            System.out.println("Solution written to file: " + outputFilePath);
         } catch (IOException e) {
             System.err.println("Error writing to output file: " + e.getMessage());
             e.printStackTrace();
